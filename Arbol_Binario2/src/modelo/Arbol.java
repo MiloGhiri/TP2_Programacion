@@ -35,17 +35,6 @@ public class Arbol<T> implements IArbol<T> {
         return nodoRaiz;
     }
 
-        
-        /*        
-        if (dato.getDni() < nodoRaiz.getDato().getDni()) { 
-            nodoRaiz.setIzquierdo(insertarRec(nodoRaiz.getIzquierdo(), dato));
-            
-        } else if (dato.getDni() > nodoRaiz.getDato().getDni()) {
-            nodoRaiz.setDerecho(insertarRec(nodoRaiz.getDerecho(), dato));
-        }
-        return nodoRaiz;
-    }
-*/
     @Override
     public INodo<T> buscar(T dato) {
         return buscarRec(raiz, dato);
@@ -66,16 +55,7 @@ public class Arbol<T> implements IArbol<T> {
             return buscarRec(nodo.getDerecho(), dato);
         }
     }
-    
-        /*
-        if (dato.getDni() < nodo.getDato().getDni()) {
-            return buscarRec(nodo.getIzquierdo(), dato);
-        } else {
-            return buscarRec(nodo.getDerecho(), dato);
-        }*/
 
-   
-    
     public void eliminar(T dato) {
         raiz = eliminarRec(raiz, dato);
     }
@@ -90,13 +70,6 @@ public class Arbol<T> implements IArbol<T> {
         } else if (cmp > 0) {
         	nodo.setDerecho(eliminarRec(nodo.getDerecho(), dato));
         }
-        /*
-        if (dato.getDni() < nodo.getDato().getDni()){
-            nodo.setIzquierdo(eliminarRec(nodo.getIzquierdo(), dato));
-        } else if (dato.getDni() > nodo.getDato().getDni()) {
-            nodo.setDerecho(eliminarRec(nodo.getDerecho(), dato));
-        } 
-        */
         else {
             // Caso 1: nodo sin hijos
             if (nodo.getIzquierdo() == null && nodo.getDerecho() == null) {
